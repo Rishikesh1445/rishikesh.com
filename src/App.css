@@ -36,3 +36,91 @@
     transform: rotate(360deg);
   }
 }
+
+.circular-menu {
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.circular-menu.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.menu-container {
+  position: relative;
+}
+
+.menu-item {
+  position: absolute;
+  padding: 1rem;
+  border-radius: 9999px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: scale(0);
+  transition: transform 0.5s ease, background-color 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: scale(1.1) !important;
+  background-color: #f8f9fa;
+}
+
+.center-button {
+  padding: 1rem;
+  border-radius: 9999px;
+  background-color: #3b82f6;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: rotate(0deg);
+  transition: transform 0.5s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.center-button:hover {
+  background-color: #2563eb;
+}
+
+.center-button.open {
+  transform: rotate(45deg);
+}
+
+.menu-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Custom animations for each menu item */
+.menu-item:nth-child(1) { animation-delay: 0ms; }
+.menu-item:nth-child(2) { animation-delay: 100ms; }
+.menu-item:nth-child(3) { animation-delay: 200ms; }
+.menu-item:nth-child(4) { animation-delay: 300ms; }
+.menu-item:nth-child(5) { animation-delay: 400ms; }
